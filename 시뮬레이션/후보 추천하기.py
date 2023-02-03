@@ -15,7 +15,6 @@ vote = int(input())
 vote_lst = map(int, input().split())
 vote_queue = deque([])
 current_vote_dic = defaultdict(int)
-min_value = 1000
 
 for idx, v in enumerate(vote_lst):
     current_vote_dic[v] += 1
@@ -28,7 +27,6 @@ for idx, v in enumerate(vote_lst):
         vote_queue.remove(dict_min_key)
 
     if current_vote_dic[v] == 1: vote_queue.append(v)
-    if current_vote_dic[v] < min_value: min_value = current_vote_dic[v]
 
 print(*sorted(vote_queue))
 

@@ -16,15 +16,15 @@ goal_str = input()
 left_finger_lst = [constant_dic[left_ch]]
 right_finger_lst = [vowel_dic[right_ch]]
 
-def process(target_lst, target_dic):
+def process(target_lst, target_dic, current_ch):
     prev_final_idx_lst = target_lst[-1]
-    current_idx_lst = target_dic[ch]
+    current_idx_lst = target_dic[current_ch]
     target_lst.append(current_idx_lst)
     return abs(prev_final_idx_lst[0] - current_idx_lst[0]) + abs(prev_final_idx_lst[1] - current_idx_lst[1]) + 1
 
 result = 0
 for ch in goal_str:
-    if ch in constant_dic: result += process(left_finger_lst, constant_dic)
-    else: result += process(right_finger_lst, vowel_dic)
+    if ch in constant_dic: result += process(left_finger_lst, constant_dic, ch)
+    else: result += process(right_finger_lst, vowel_dic, ch)
 
 print(result)
