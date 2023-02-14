@@ -17,8 +17,8 @@ def BFS():
     while queue:
         pop_position_x, pop_position_y, pop_distance = queue.popleft()
         if pop_position_x == N - 1 and pop_position_y == M - 1:
-            result_max = max(result_max, pop_distance)
-            continue
+            result_max = pop_distance
+            break
 
         for idx in range(4):
             nx = pop_position_x + vector[idx][0]
